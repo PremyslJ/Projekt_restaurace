@@ -1,82 +1,44 @@
 package com.engeto;
 
 import java.util.List;
-public class Dish{
 
-    private static int idCounter = 1;
-    private int  id = idCounter++;
-
+public class Dish {
     private String title;
-    private Double price;
+    private double price;
     private int preparationTime;
-
-    private String mainImage;
     private List<String> images;
+    private String category;
 
-    public Dish() {
+    public Dish(String title, double price, int preparationTime, List<String> images, String category) {
         this.title = title;
         this.price = price;
         this.preparationTime = preparationTime;
-        this.mainImage = mainImage;
         this.images = images;
-    }
-
-    public Dish(String title, Double price, int preparationTime, String mainImage) {
-        this.title = title;
-        this.price = price;
-        this.preparationTime = preparationTime;
-        this.mainImage = mainImage;
+        this.category = category;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Double getPrice() {
+    public double getPrice() {
         return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     public int getPreparationTime() {
         return preparationTime;
     }
 
-    public void setPreparationTime(int preparationTime) {
-        this.preparationTime = preparationTime;
-    }
-
-    public String getMainImage() {
-        return mainImage;
-    }
-
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
-    }
-
     public List<String> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
-        this.images = images;
+    public String getCategory() {
+        return category;
     }
 
     @Override
     public String toString() {
-        return    '\n'+
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", preparationTime=" + preparationTime +
-                ", mainImage='" + mainImage + '\'' +
-                ", images=" + images +'\n'
-                ;
+        return title + " - " + price + " Kč, Kategorie: " + category;
     }
 }
