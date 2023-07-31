@@ -1,24 +1,44 @@
 package com.engeto;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+    private static int nextOrderId = 1;
+    private int orderId;
     private int tableNumber;
+    private final List<Dish> items;
+    private int waiterId;
     private String orderedTime;
     private String fulfillmentTime;
-    private int waiterId; // ID číšníka, který objednávku vytvořil
-    private List<Dish> items;
+    private final String note;
+    private boolean completed;
 
-    public Order(int tableNumber, String orderedTime, int waiterId) {
+    public Order(int tableNumber, List<Dish> items, int waiterId, String orderedTime, String fulfillmentTime, String note) {
+        this.orderId = nextOrderId++;
         this.tableNumber = tableNumber;
-        this.orderedTime = orderedTime;
+        this.items = items;
         this.waiterId = waiterId;
-        this.items = new ArrayList<>();
+        this.orderedTime = orderedTime;
+        this.fulfillmentTime = fulfillmentTime;
+        this.note = note;
+        this.completed = false;
     }
 
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
     public int getTableNumber() {
         return tableNumber;
+    }
+    public boolean isCompleted() {
+        return completed;
+    }
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public void setTableNumber(int tableNumber) {
@@ -69,6 +89,17 @@ public class Order {
         }
     }
 
+//    @Override
+//    public String toString() {
+//        return
+//                "tableNumber=" + tableNumber +"\n"+
+//                ", items=" + items +"\n"+
+//                ", waiterId=" + waiterId +"\n"+
+//                ", orderedTime='" + orderedTime + '\'' +"\n"+
+//                ", fulfillmentTime='" + fulfillmentTime + '\'' +"\n"+
+//                ", note='" + note + '\'' +"\n"+
+//                '}';
+//    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -76,6 +107,7 @@ public class Order {
         sb.append("Ordered Time: ").append(orderedTime).append("\n");
         sb.append("Fulfillment Time: ").append(fulfillmentTime).append("\n");
         sb.append("Waiter ID: ").append(waiterId).append("\n");
+        sb.append("Poznámka: ").append(note).append("\n");
         sb.append("Items:\n");
         for (Dish dish : items) {
             sb.append("- ").append(dish.getTitle()).append(", Price: ").append(dish.getPrice()).append(" Kč\n");

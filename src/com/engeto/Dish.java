@@ -7,9 +7,9 @@ public class Dish {
     private double price;
     private int preparationTime;
     private List<String> images;
-    private String category;
+    private  Category category;
 
-    public Dish(String title, double price, int preparationTime, List<String> images, String category) {
+    public Dish(String title, double price, int preparationTime, List<String> images,  Category category) {
         this.title = title;
         this.price = price;
         this.preparationTime = preparationTime;
@@ -33,8 +33,12 @@ public class Dish {
         return images;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
