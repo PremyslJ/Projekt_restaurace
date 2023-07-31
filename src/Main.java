@@ -12,7 +12,8 @@ public class Main {
 
 
         // Přidání receptů do cookBook
-
+        List<String> images1 = Arrays.asList("kuřecí-rizek-01", "kuřecí-rizek-02");
+        Dish dish1 = new Dish("Kuřecí řízek obalovaný 150 g", 120.0, 20, images1, Category.MAINDISH);
 
 
         List<String> images2 = Arrays.asList("hranolky-01", "hranolky-02");
