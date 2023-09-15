@@ -40,6 +40,7 @@ public class Main {
 
         // Přidání receptů do aktuálního menu
         restaurantManager.addToMenu(dish1);
+        restaurantManager.addToMenu(dish2);
         restaurantManager.addToMenu(dish3);
         restaurantManager.addToMenu(dish4);
         restaurantManager.addToMenu(dish5);
@@ -48,7 +49,7 @@ public class Main {
         // Vytvoření objednávek
 
 
-        Dish[] items1 = {dish1, dish3,dish5};
+        Dish[] items1 = {dish2, dish3,dish5};
         Order order1 = new Order(15, Arrays.asList(items1), 3, "15:25", null, null);
 
         Dish[] items2 = {dish3};
